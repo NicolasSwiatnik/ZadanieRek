@@ -1,12 +1,7 @@
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
 .App-header {
-  background-color: #282c34;
+  background: url(obraz-przedstawiajacy-gorskie-jezioro-z-gora-w-tle.jpg) no-repeat center fixed;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,11 +12,27 @@
 }
 
 .wyl {
+  animation:  transitionIn 3s;
   width: 80%;
   margin: auto;
-  border: 5px solid;
-  border-radius: 10px;
-  animation:  transitionIn 3s;
+  color: transparent;
+}
+
+.Nag { 
+  color: white;
+  text-shadow: #485c85 2px 2px;
+  font-family: "Arial Black", Gadget, sans-serif;
+
+}
+
+.test {
+  width: 60%;
+  height: 650px;
+  background-color: wheat;
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  
 }
 
 

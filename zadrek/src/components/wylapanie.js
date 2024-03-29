@@ -9,7 +9,7 @@ const Wylapanie = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    /*useEffect(() => {
         const fetchTags = async () => {
             try {
                 const response = await axios.get('https://api.stackexchange.com/2.2/tags?pagesize=100&order=desc&sort=popular&site=stackoverflow');
@@ -22,7 +22,7 @@ const Wylapanie = () => {
         };
 
         fetchTags();
-    }, []);
+    }, []);*/
 
     return ( 
         <div>
