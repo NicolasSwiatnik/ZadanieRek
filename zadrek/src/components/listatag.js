@@ -35,8 +35,8 @@ const Listatag = ({ tags })  => {
     }
 
     return (
-        <div>
-            <TableContainer component={Paper}>
+        <div style ={{overflowX: 'auto'}}>
+            <TableContainer component={Paper} style={{borderRadius: 20, maxHeight: 400}}>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -61,7 +61,7 @@ const Listatag = ({ tags })  => {
                         {sortedTags.slice(0, itemsPerPage).map(tag => (
                             <TableRow key ={tag.name}>
                                 <TableCell allign = 'center' component='th' scope= 'row'>{tag.name}</TableCell>
-                                <TableCell align='right'>{tag.count}</TableCell>
+                                <TableCell allign = 'center'>{tag.count}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
