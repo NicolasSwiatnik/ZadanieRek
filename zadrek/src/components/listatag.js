@@ -25,42 +25,42 @@ const Listatag = ({ tags })  => {
         }
     };
 
-    const filteredTags = tags.filter(tag => tag.name.toLowerCase().incluedes (searchTerm.toLowerCase()));
+    const filteredTags = tags.filter(tag => tag.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
-    const sortedTags =  [filteredTags];
+    const sortedTags =  [...filteredTags];
     if (sortBy === 'name') {
         sortedTags.sort((a, b) => sortDirection === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
     } else if (sortBy === 'count') {
-        sortedTags.sort((a, b) => a[sortDirection] + b[sortDirection]);
+    sortedTags.sort((a, b) => sortDirection === 'asc' ? a.count - b.count : b.count - a.count);
     }
 
     return (
         <div>
-            <TextField
-                label='Ilość wyników na stronie'
-                type='number'
-                value={itemsPerPage}
-                onChange={handleItemsPerPageChange}
-            />
-            <TextField
-                label='Wyszukaj tag'
-                value={searchTerm}
-                onChange={handleSearchTermChange}
-            />
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell><h2>Tag</h2><Button onClick={()=> handleSort ('name')}>({sortBy === 'name' ? ( sortDirection === 'asc' ? '▲' : '▼') : ''})</Button></TableCell>
-                            <TableCell allign = 'right'><h2>Liczba Tagów</h2><Button onClick={() => handleSort('count')}> ({sortBy === 'count' ? (sortDirection === 'asc' ? '▼' : '▲') : '' })</Button></TableCell>
+                            <TextField allign = 'center'
+                                label='Ilość wyników na stronie'
+                                type='number'
+                                value={itemsPerPage}
+                                onChange={handleItemsPerPageChange}
+                            />
+                            <TextField allign = 'center'
+                                label='Wyszukaj tag'
+                                value={searchTerm}
+                                onChange={handleSearchTermChange}
+                            />
+                        </TableRow>
+                        <TableRow>
+                            <TableCell allign = 'center'>Tag<Button onClick={()=> handleSort ('name')}>({sortBy === 'name' ? ( sortDirection === 'asc' ? '▲' : '▼') : ''})</Button></TableCell>
+                            <TableCell allign = 'center'>Liczba Tagów<Button onClick={() => handleSort('count')}> ({sortBy === 'count' ? (sortDirection === 'asc' ? '▼' : '▲') : '' })</Button></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {sortedTags.slice(0, itemsPerPage).map(tag => (
                             <TableRow key ={tag.name}>
-                                <TableCell component='th' scope= 'row'>
-                                    {tag.name}
-                                </TableCell>
+                                <TableCell allign = 'center' component='th' scope= 'row'>{tag.name}</TableCell>
                                 <TableCell align='right'>{tag.count}</TableCell>
                             </TableRow>
                         ))}

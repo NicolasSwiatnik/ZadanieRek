@@ -28,7 +28,7 @@ const Wylapanie = () => {
         <div>
             {loading && <Ladownie/>}
             {error && <ErrorAlert message={error} />}
-            {!Ladownie && !error && <Listatag tags={tags}/>}
+            {!loading && !error && <Listatag tags={tags}/>}
         </div>
     );
 };
