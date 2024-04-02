@@ -36,7 +36,7 @@ const Listatag = ({ tags })  => {
 
     return (
         <div style ={{overflowX: 'auto'}}>
-            <TableContainer component={Paper} style={{borderRadius: 20, maxHeight: 400}}>
+            <TableContainer component={Paper} style={{borderRadius: 10, maxHeight: 600, minHeight:600}}>
                 <Table>
                     <TableHead>
                         <TableRow>
