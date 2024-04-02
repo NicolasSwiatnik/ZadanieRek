@@ -40,17 +40,21 @@ const Listatag = ({ tags })  => {
                 <Table>
                     <TableHead>
                         <TableRow>
+                        <TableCell style={{width: '50%', padding: '8px'}} align="right">
                             <TextField allign = 'center'
                                 label='Ilość wyników na stronie'
                                 type='number'
                                 value={itemsPerPage}
                                 onChange={handleItemsPerPageChange}
                             />
+                            </TableCell>
+                        <TableCell style={{width: '50%', padding: '8px'}} align="right">
                             <TextField allign = 'center'
                                 label='Wyszukaj tag'
                                 value={searchTerm}
                                 onChange={handleSearchTermChange}
                             />
+                        </TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell allign = 'center'>Tag<Button onClick={()=> handleSort ('name')}>({sortBy === 'name' ? ( sortDirection === 'asc' ? '▲' : '▼') : ''})</Button></TableCell>
