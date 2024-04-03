@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField } from '@mui/material';
+import { orange } from "@mui/material/colors";
 
 const Listatag = ({ tags })  => {
     const [sortDirection, setSortDirection] = useState('asc');
@@ -9,7 +10,9 @@ const Listatag = ({ tags })  => {
 
     const handleItemsPerPageChange = (event) => {
         const {value} = event.target;
+        if (parseInt(value)>= 0){
         setItemsPerPage(parseInt(value));
+        }
     };
 
     const handleSearchTermChange = (event) => {
@@ -36,32 +39,32 @@ const Listatag = ({ tags })  => {
 
     return (
         <div style ={{overflowX: 'auto'}}>
-            <TableContainer component={Paper} style={{borderRadius: 10, maxHeight: 600, minHeight:600}}>
-                <Table>
+            <TableContainer component={Paper} style={{maxHeight: 600, minHeight:600, minWidth:400, maxWidth:400, borderRadius: 20, scrollbarWidth:'none'}}>
+                <Table style={{ minWidth: 150, borderRadius: 20, }}>
                     <TableHead>
                         <TableRow>
-                        <TableCell style={{width: '50%', padding: '8px'}} align="right">
-                            <TextField allign = 'center'
+                        <TableCell style={{padding: '8px'}} align = 'left' >
+                            <TextField 
+                                label='Wyszukaj tag'
+                                value={searchTerm}
+                                onChange={handleSearchTermChange}
+                            />
+                        </TableCell>
+                        <TableCell style={{padding: '8px'}} align = 'left' >
+                            <TextField 
                                 label='Ilość wyników na stronie'
                                 type='number'
                                 value={itemsPerPage}
                                 onChange={handleItemsPerPageChange}
                             />
                             </TableCell>
-                        <TableCell style={{width: '50%', padding: '8px'}} align="right">
-                            <TextField allign = 'center'
-                                label='Wyszukaj tag'
-                                value={searchTerm}
-                                onChange={handleSearchTermChange}
-                            />
-                        </TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell allign = 'center'>Tag<Button onClick={()=> handleSort ('name')}>({sortBy === 'name' ? ( sortDirection === 'asc' ? '▲' : '▼') : ''})</Button></TableCell>
                             <TableCell allign = 'center'>Liczba Tagów<Button onClick={() => handleSort('count')}> ({sortBy === 'count' ? (sortDirection === 'asc' ? '▼' : '▲') : '' })</Button></TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody >
                         {sortedTags.slice(0, itemsPerPage).map(tag => (
                             <TableRow key ={tag.name}>
                                 <TableCell allign = 'center' component='th' scope= 'row'>{tag.name}</TableCell>

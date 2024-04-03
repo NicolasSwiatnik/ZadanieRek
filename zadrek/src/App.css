@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
 .App-header {
   background: url(obraz-przedstawiajacy-gorskie-jezioro-z-gora-w-tle.jpg) no-repeat center fixed;
   background-size: cover;
@@ -9,19 +11,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
 }
 
 .wyl {
-  animation:  transitionIn 3s;
-  width: 80%;
+  animation:  transitionIn 2.5s;
+  width: auto;
   margin: auto;
-  color: transparent;
+  align-items: center;
 }
 
 .Nag { 
   color: white;
-  text-shadow: #485c85 2px 2px;
-  font-family: "Arial Black", Gadget, sans-serif;
+  text-shadow: #050505 4px 4px;
+  font-family: "Times New Roman", Gadget, sans-serif;
+  position: relative;
+  bottom: 80%;
 
 }
 
@@ -35,6 +40,36 @@
   
 }
 
+.toggle-button{
+  font-family: Nunito;
+  font-weight: 600;
+  font-size: 20px;
+  color: #dce1e3;
+  background: linear-gradient(90deg, #f26602 0%, #0a0a0a 100%);
+  padding: 10px 30px;
+  border: solid #264653 1px;
+  box-shadow: rgb(0, 0, 0) 1px 10px 20px 4px;
+  border-radius: 50px;
+  transition : 1048ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer; 
+  position: relative;
+
+  }
+  
+  .toggle-button:hover{
+  transition : 1048ms;
+  padding: 10px 50px;
+  transform : translateY(-0px);
+  background: linear-gradient(90deg, #f26602 0%, #0a0a0a 100%);
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  }
+  
+  
 
 @keyframes transitionIn {
   from {
